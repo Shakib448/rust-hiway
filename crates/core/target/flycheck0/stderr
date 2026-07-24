@@ -1,0 +1,5 @@
+error: the argument '--all-targets' cannot be used multiple times
+
+Usage: cargo check [OPTIONS]
+
+For more information, try '--help'.

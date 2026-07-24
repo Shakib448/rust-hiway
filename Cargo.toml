@@ -1,0 +1,126 @@
+[workspace]
+resolver = "3"
+members = [
+  "apps/server",
+  "crates/core",
+  "crates/http",
+  "crates/auth",
+  "crates/rate-limit",
+  "crates/config",
+  "crates/observability",
+]
+default-members = ["apps/server"]
+
+[workspace.package]
+name = "hiway"
+version = "0.1.0"
+edition = "2024"
+authors = ["Muktadir Ahmed Shakib <shakiba448@gmail.com>"]
+
+[workspace.dependencies]
+# Async Runtime
+tokio = { version = "1", features = ["full"] }
+
+# HTTP
+hyper = { version = "1", features = ["full"] }
+hyper-util = { version = "0.1", features = ["full"] }
+http = "1"
+http-body = "1"
+http-body-util = "0.1"
+bytes = "1"
+
+# Tower Ecosystem
+tower = { version = "0.5", features = [
+  "full",
+  "timeout",
+  "retry",
+  "limit",
+  "load-shed",
+  "util",
+] }
+
+tower-http = { version = "0.7", features = [
+  "trace",
+  "cors",
+  "compression-full",
+  "decompression-full",
+  "request-id",
+  "sensitive-headers",
+  "normalize-path",
+  "timeout",
+] }
+
+# Serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+serde_yaml = "0.9"
+
+# Configuration
+config = "0.15"
+dotenvy = "0.15"
+
+# Logging & Tracing
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
+
+tracing-appender = "0.2"
+
+# OpenTelemetry
+opentelemetry = "0.32"
+opentelemetry_sdk = "0.32"
+opentelemetry-otlp = { version = "0.32", features = ["grpc-tonic"] }
+tracing-opentelemetry = "0.33"
+
+# Metrics
+metrics = "0.24"
+metrics-exporter-prometheus = "0.18"
+
+# JWT
+jsonwebtoken = "11"
+
+# UUID
+uuid = { version = "1", features = ["v4", "serde"] }
+
+# Time
+chrono = { version = "0.4", features = ["serde"] }
+
+# Error Handling
+thiserror = "2"
+anyhow = "1"
+
+# Async Traits
+async-trait = "0.1"
+
+# Rate Limiter / Cache
+dashmap = "6"
+
+# Redis
+redis = { version = "1.4", features = ["tokio-comp", "connection-manager"] }
+
+# RabbitMQ (optional)
+lapin = "4"
+
+# Health Checks
+futures = "0.3"
+
+# Retry / Backoff
+backoff = { version = "0.4", features = ["tokio"] }
+
+# DNS / Service Discovery
+hickory-resolver = "0.26"
+
+# TLS
+rustls = "0.23"
+tokio-rustls = "0.26"
+
+# CLI
+clap = { version = "4", features = ["derive"] }
+
+# Utilities
+parking_lot = "0.12"
+once_cell = "1"
+rand = "0.10"
+regex = "1"
+
+# URL Parsing
+url = "2"
