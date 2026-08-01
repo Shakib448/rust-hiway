@@ -1,6 +1,26 @@
 [package]
-name = "server"
+name = "hiway-server"
 version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+# Runtime / HTTP (hello server)
+tokio = { workspace = true }
+hyper = { workspace = true }
+hyper-util = { workspace = true }
+http-body-util = { workspace = true }
+tower = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+
+# Composition root
+hiway-core = { workspace = true }
+hiway-http = { workspace = true }
+hiway-auth = { workspace = true }
+hiway-rate-limit = { workspace = true }
+hiway-config = { workspace = true }
+hiway-observability = { workspace = true }
+
+# Bootstrap
+clap = { workspace = true }
+anyhow = { workspace = true }

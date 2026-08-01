@@ -12,7 +12,6 @@ members = [
 default-members = ["apps/server"]
 
 [workspace.package]
-name = "hiway"
 version = "0.1.0"
 edition = "2024"
 authors = ["Muktadir Ahmed Shakib <shakiba448@gmail.com>"]
@@ -62,8 +61,8 @@ dotenvy = "0.15"
 # Logging & Tracing
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
-
 tracing-appender = "0.2"
+
 
 # OpenTelemetry
 opentelemetry = "0.32"
@@ -124,3 +123,11 @@ regex = "1"
 
 # URL Parsing
 url = "2"
+
+# Internal crates
+hiway-core = { path = "crates/core" }
+hiway-http = { path = "crates/http" }
+hiway-auth = { path = "crates/auth" }
+hiway-rate-limit = { path = "crates/rate-limit" }
+hiway-config = { path = "crates/config" }
+hiway-observability = { path = "crates/observability" }

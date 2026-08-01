@@ -1,6 +1,14 @@
 [package]
-name = "rate-limit"
+name = "hiway-rate-limit"
 version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+hiway-core = { workspace = true }
+
+dashmap = { workspace = true }
+redis = { workspace = true }
+tokio = { workspace = true }
+thiserror = { workspace = true }
+async-trait = { workspace = true }
+parking_lot = { workspace = true }

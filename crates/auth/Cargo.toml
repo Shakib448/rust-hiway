@@ -1,6 +1,14 @@
 [package]
-name = "auth"
+name = "hiway-auth"
 version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+hiway-core = { workspace = true }
+
+jsonwebtoken = { workspace = true }
+serde = { workspace = true }
+uuid = { workspace = true }
+chrono = { workspace = true }
+thiserror = { workspace = true }
+async-trait = { workspace = true }
