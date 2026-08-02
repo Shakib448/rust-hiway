@@ -1,15 +1,13 @@
-mod logger;
-
 use std::convert::Infallible;
 use std::net::SocketAddr;
 
+use hiway_config::Logger;
 use http_body_util::Full;
 use hyper::body::Bytes;
 use hyper::{Request, Response};
 use hyper_util::rt::{TokioExecutor, TokioIo};
 use hyper_util::server::conn::auto;
 use hyper_util::service::TowerToHyperService;
-use logger::Logger;
 use tokio::net::TcpListener;
 use tower::ServiceBuilder;
 

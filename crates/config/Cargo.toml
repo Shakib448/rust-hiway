@@ -11,3 +11,6 @@ serde_json = { workspace = true }
 serde_yaml = { workspace = true }
 thiserror = { workspace = true }
 anyhow = { workspace = true }
+hyper = { workspace = true }
+tower = { workspace = true }
+tracing = { workspace = true }

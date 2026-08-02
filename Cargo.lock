@@ -887,10 +887,13 @@ dependencies = [
  "anyhow",
  "config",
  "dotenvy",
+ "hyper",
  "serde",
  "serde_json",
  "serde_yaml",
  "thiserror",
+ "tower",
+ "tracing",
 ]
 
 [[package]]
