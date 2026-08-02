@@ -1,3 +1,5 @@
+mod logger;
+
 use std::convert::Infallible;
 use std::net::SocketAddr;
 
@@ -7,9 +9,9 @@ use hyper::{Request, Response};
 use hyper_util::rt::{TokioExecutor, TokioIo};
 use hyper_util::server::conn::auto;
 use hyper_util::service::TowerToHyperService;
+use logger::Logger;
 use tokio::net::TcpListener;
 use tower::ServiceBuilder;
-mod logger;
 
 async fn hello(_: Request<hyper::body::Incoming>) -> Result<Response<Full<Bytes>>, Infallible> {
     Ok(Response::new(Full::new(Bytes::from("Hello, World!"))))
@@ -33,9 +35,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
 
         tokio::task::spawn(async move {
             let svc = tower::service_fn(hello);
-            let svc = ServiceBuilder::new()
-                .layer_fn(logger::Logger::new)
-                .service(svc);
+            let svc = ServiceBuilder::new().layer_fn(Logger::new).service(svc);
             let svc = TowerToHyperService::new(svc);
 
             if let Err(err) = auto::Builder::new(TokioExecutor::new())
