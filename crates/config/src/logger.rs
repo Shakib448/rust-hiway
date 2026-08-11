@@ -13,6 +13,7 @@ impl<S> Logger<S> {
 }
 
 type Req = Request<Incoming>;
+
 impl<S> Service<Req> for Logger<S>
 where
     S: Service<Req> + Clone,
